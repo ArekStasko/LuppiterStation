@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "LuppiterStation",
-    "project_version":    "fd3c23e",
+    "project_version":    "e91789c-dirty",
     "project_path":       "/home/arekstasko/sources/repos/LuppiterStation",
     "idf_path":           "/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1",
     "build_dir":          "/home/arekstasko/sources/repos/LuppiterStation/build",

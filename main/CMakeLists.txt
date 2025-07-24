@@ -1,3 +1,3 @@
-idf_component_register(SRCS "LuppiterStation.c" "./services/CommunicationService/Communication_Service.c" "./services/NvsService/Nvs_Service.c"
-                    INCLUDE_DIRS "." "./services/CommunicationService" "./services/NvsService"
+idf_component_register(SRCS "LuppiterStation.c" "./services/CommunicationService/Communication_Service.c"
+                    INCLUDE_DIRS "." "./services/CommunicationService"
                     REQUIRES nvs_flash driver esp_wifi)
