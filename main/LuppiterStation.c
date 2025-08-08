@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Nvs_Service.h"
+#include "nvs_flash.h"
 #include "Communication_Service.h"
 #include "nvs_flash.h"
 

@@ -1,0 +1,54 @@
+[1/15] Linking C static library esp-idf/mqtt/libmqtt.a
+[2/15] Linking C static library esp-idf/spiffs/libspiffs.a
+[3/15] Linking C static library esp-idf/wifi_provisioning/libwifi_provisioning.a
+[4/15] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/LuppiterStation.c.obj
+[5/15] Performing build step for 'bootloader'
+[1/1] cd /home/arekstasko/sources/repos/LuppiterStation/build/bootloader/esp-idf/esptool_py && /home/arekstasko/.espressif/python_env/idf5.3_py3.10_env/bin/python /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/arekstasko/sources/repos/LuppiterStation/build/bootloader/bootloader.bin
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[6/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/services/CommunicationService/Communication_Service.c.obj
+/home/arekstasko/sources/repos/LuppiterStation/main/services/CommunicationService/Communication_Service.c: In function 'init_esp_now':
+/home/arekstasko/sources/repos/LuppiterStation/main/services/CommunicationService/Communication_Service.c:18:28: warning: passing argument 1 of 'esp_now_register_recv_cb' from incompatible pointer type [-Wincompatible-pointer-types]
+   18 |   esp_now_register_recv_cb(on_data_recv);
+      |                            ^~~~~~~~~~~~
+      |                            |
+      |                            void (*)(const uint8_t *, const uint8_t *, int) {aka void (*)(const unsigned char *, const unsigned char *, int)}
+In file included from /home/arekstasko/sources/repos/LuppiterStation/main/services/CommunicationService/Communication_Service.c:3:
+/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esp_wifi/include/esp_now.h:158:54: note: expected 'esp_now_recv_cb_t' {aka 'void (*)(const struct esp_now_recv_info *, const unsigned char *, int)'} but argument is of type 'void (*)(const uint8_t *, const uint8_t *, int)' {aka 'void (*)(const unsigned char *, const unsigned char *, int)'}
+  158 | esp_err_t esp_now_register_recv_cb(esp_now_recv_cb_t cb);
+      |                                    ~~~~~~~~~~~~~~~~~~^~
+/home/arekstasko/sources/repos/LuppiterStation/main/services/CommunicationService/Communication_Service.c: At top level:
+/home/arekstasko/sources/repos/LuppiterStation/main/services/CommunicationService/Communication_Service.c:7:20: warning: 'TAG' defined but not used [-Wunused-variable]
+    7 | static const char *TAG = "LUPPITER-C-STATION";
+      |                    ^~~
+[7/13] Linking C static library esp-idf/main/libmain.a
+[8/13] Generating ld/sections.ld
+[9/13] Building C object CMakeFiles/LuppiterStation.elf.dir/project_elf_src_esp32.c.obj
+[10/13] Linking CXX executable LuppiterStation.elf
+[11/13] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/arekstasko/sources/repos/LuppiterStation/build/LuppiterStation.bin
+[12/13] cd /home/arekstasko/sources/repos/LuppiterStation/build/esp-idf/esptool_py && /home/arekstasko/.espressif/python_env/idf5.3_py3.10_env/bin/python /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/arekstasko/sources/repos/LuppiterStation/build/partition_table/partition-table.bin /home/arekstasko/sources/repos/LuppiterStation/build/LuppiterStation.bin
+LuppiterStation.bin binary size 0xb8370 bytes. Smallest app partition is 0x100000 bytes. 0x47c90 bytes (28%) free.
+[12/13] cd /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py && /home/arekstasko/.espressif/tools/cmake/3.24.0/bin/cmake -D IDF_PATH=/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1 -D "SERIAL_TOOL=/home/arekstasko/.espressif/python_env/idf5.3_py3.10_env/bin/python;;/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/arekstasko/sources/repos/LuppiterStation/build -P /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyUSB1 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 LuppiterStation.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB1
+Connecting...........
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+WARNING: Detected crystal freq 15.67MHz is quite different to normalized freq 26MHz. Unsupported crystal in use?
+Crystal is 26MHz
+MAC: 84:1f:e8:45:0e:f4
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+
+A fatal error occurred: Unable to verify flash chip connection (No serial data received.).
+FAILED: CMakeFiles/flash /home/arekstasko/sources/repos/LuppiterStation/build/CMakeFiles/flash 
+cd /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py && /home/arekstasko/.espressif/tools/cmake/3.24.0/bin/cmake -D IDF_PATH=/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1 -D "SERIAL_TOOL=/home/arekstasko/.espressif/python_env/idf5.3_py3.10_env/bin/python;;/home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/arekstasko/sources/repos/LuppiterStation/build -P /home/arekstasko/sources/Espressif-IDE/esp-idf-v5.3.1/components/esptool_py/run_serial_tool.cmake
+ninja: build stopped: subcommand failed.
