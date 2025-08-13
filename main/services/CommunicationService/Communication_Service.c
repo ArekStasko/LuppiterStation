@@ -9,7 +9,7 @@ uint8_t broadcast_address[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 
 void on_data_recv(const uint8_t *mac, const uint8_t *data, int len)
 {
-    printf("%.*s\n", len, data);
+    printf("DATA | %.*s\n", len, data);
 }
 
 void init_esp_now()
